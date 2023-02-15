@@ -1,0 +1,36 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <element name="alumno">
+        <complexType>
+            <sequence>
+                <element name="nombre" type="xs:string" />
+                <element />
+                <element name="direccion" type="tipodireccion" />
+                <element name="telefono" type="xs:int" minOccurs="0" maxOccurs="5"/>
+            </sequence>
+            <xs:attribute name="dni" type="tipoDNI"/>
+        </complexType>
+    </element>
+    <complexType name="tipodireccion">
+        <sequence>
+            <element name="calle" type="xs:string" />
+            <element name="numero" type="xs:int">
+                <xs:simpleType name="numero">
+                    <xs:restriction base="xs:int">
+                        <xs:minLength value="0"/>
+                        <xs:maxLength value="500"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </element>
+            <element name="calle" type="xs:string" />
+            <element name="provincia" type="xs:string"/>
+        </sequence>
+    </complexType>
+
+    <!-- Restricción para usar con los dni-->
+    <xs:simpleType name="tipoDNI">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{8}[A-Z]"/>
+        </xs:restriction>
+    </xs:simpleType>
+</schema>
