@@ -1,0 +1,8 @@
+<!ELEMENT ligaFutbol (partidos)*>
+<!ELEMENT partidos (equipoLocal,equipoVisitante)>
+<!ELEMENT equipoLocal EMPTY>
+<!ATTLIST equipoLocal goles NMTOKEN #REQUIRED>
+<!ATTLIST equipoLocal nombre NMTOKEN #REQUIRED>
+<!ELEMENT equipoVisitante EMPTY>
+<!ATTLIST equipoVisitante goles NMTOKEN #REQUIRED>
+<!ATTLIST equipoVisitante nombre NMTOKEN #REQUIRED>

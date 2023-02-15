@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ligaFutbol[
+    <!ELEMENT ligaFútbol (partidos+)>
+<!ELEMENT partidos (equipoLocal,equipoVisitante)>
+<!ELEMENT equipoLocal EMPTY>
+<!ATTLIST equipoLocal goles NMTOKEN #REQUIRED>
+<!ATTLIST equipoLocal nombre CDATA #REQUIRED>
+<!ELEMENT equipoVisitante EMPTY>
+<!ATTLIST equipoLocal goles NMTOKEN #REQUIRED>
+<!ATTLIST equipoLocal nombre CDATA #REQUIRED>
+
+]>

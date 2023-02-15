@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ligaFútbol SYSTEM "G:\DOCUMENTOS DISCO LOCAL C\INSTITUTO 2022-2023\LENGUAJE DE MARCAS\PRÁCTICAS\ligaFútbol.dtd>
+<ligaFútbol>
+<partidos>
+<equipoLocal goles="10" nombre="Sevilla"/>
+<equipoVisitante goles="8" nombre="Betis"/>
+
+
+</partidos>    
+<partidos>
+
+
+
+</partidos>
+
+
+</ligaFútbol>

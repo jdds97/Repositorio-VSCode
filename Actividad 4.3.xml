@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:element name="registro-temperatura" type="xs:string">
+    <xs_complexType>
+        <xs_sequence>
+            <xs:element name="provincia" type="xs:string"/>
+            <xs:element name="fecha registro" type="xs:date" />
+            
+                <xs:element name="temperatura" type="xs:integer">
+                <xs:element name="temperatura-mínima">    
+                <xs:simpleType>
+
+                    </xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="-50"/>
+                    
+
+                    </xs:restriction>
+        </xs:element>
+</xs:simpleType>
+</xs_sequence>
+
+
+</xs_complexType>
+
+<xs:
+
+
+</xs:element>
+
+</xs:schema>

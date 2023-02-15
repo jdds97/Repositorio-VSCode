@@ -1,0 +1,9 @@
+<!ELEMENT recetas (receta_cocina)>
+<!ELEMENT receta (nombre, ingrediente+,instrucciones) >
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT ingrediente (#PCDATA)>
+<!ELEMENT instrucciones (#PCDATA)>
+<!ATTLIST receta numeroRaciones NMTOKEN #REQUIRED>
+<!ATTLIST receta dificultad (baja|media|alta) CDATA "media" #IMPLIED >
+<!ATTLIST ingrediente cantidad NMTOKENS #IMPLIED>
+<!ATTLIST ingrediente unidad NMTOKEN #IMPLIED "">  

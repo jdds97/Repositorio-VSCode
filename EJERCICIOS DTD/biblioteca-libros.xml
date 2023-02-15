@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE biblioteca SYSTEM "libros.dtd">
+<biblioteca>
+    <libro isbn="FC">
+        <titulo></titulo>
+        <autor></autor>
+        <año></año>
+    </libro>
+</biblioteca>

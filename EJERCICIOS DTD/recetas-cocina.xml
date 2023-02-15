@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE recetas SYSTEM "recetas.dtd">
+<recetas>
+    <receta numeroRaciones="2" dificultad="alta">
+        <nombre> Pollo a la carbonara</nombre>
+        <ingrediente cantidad="2" unidad="kg">Pollo</ingrediente>
+        <ingrediente cantidad="100" unidad="ml" >Salsa carbonara</ingrediente>
+        <instrucciones>
+            Descongelar el pollo y llevarlo al horno a 180ª durante 40 min
+        </instrucciones>
+    </receta>
+    <receta numeroRaciones="3" dificultad="baja">
+        <nombre> Arroz con bogavante</nombre>
+        <ingrediente>Arroz </ingrediente>
+        <instrucciones>
+            Prepara el arroz
+        </instrucciones>
+    </receta>
+</recetas>
