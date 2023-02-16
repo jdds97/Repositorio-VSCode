@@ -1,0 +1,38 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <!-- Declaración del elemento raíz-->
+    <xsd:element name="heladeria">
+        <xsd:complexType >
+            <xsd:sequence>
+                <xsd:element name="helado" type="helado" minOccurs="1" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+
+    <!-- Declaración de elemento hijo helado-->
+    <xsd:complexType name="helado">
+        <xsd:sequence>
+            <xsd:choice>
+                <xsd:element name="vainilla" />
+                <xsd:element name="fresa" />
+            </xsd:choice>
+            <xsd:element name="chocolate" />
+        </xsd:sequence>
+        <xsd:attribute name="fabricacion" type="xsd:date"/>
+    </xsd:complexType>
+
+    <!-- Tipo restriccion de gramos -->
+    <xsd:simpleType name="tipoResPeso1">
+        <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="0"/>
+            <xsd:maxInclusive value="1000"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="tipoResPeso2">
+        <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="0"/>
+            <xsd:maxInclusive value="200"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema> 

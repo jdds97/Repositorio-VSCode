@@ -1,0 +1,439 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://micinn.es/carga"
+    xmlns="http://micinn.es/carga" elementFormDefault="qualified">
+
+    <xsd:element name="cargamasiva" type="CargaMasiva" />
+    <xsd:complexType name="CargaMasiva">
+        <xsd:annotation>
+            <xsd:documentation> Conjunto de definiciones para el fichero de carga masiva </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="cabecera" type="Cabecera" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="listaAyudaEconomica" type="ListaAyudaEconomica" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <!-- Datos generales de la carga -->
+    <xsd:complexType name="Cabecera">
+        <xsd:annotation>
+            <xsd:documentation> Cabecera de información con comentario adicional sobre el contenido
+                del fichero </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="comentario" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <!-- Ayudas cuyos datos económicos van a ser incluidos en la carga -->
+    <xsd:complexType name="ListaAyudaEconomica">
+        <xsd:sequence>
+            <xsd:element name="ayudaEconomica" type="AyudaEconomica" minOccurs="1" maxOccurs="unbounded">
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="AyudaEconomica">
+        <xsd:annotation>
+            <xsd:documentation></xsd:documentation>
+        </xsd:annotation>
+
+        <xsd:sequence>
+            <!-- Referencia de la ayuda (identificador único) -->
+            <xsd:element name="referencia" type="xsd:string" maxOccurs="1" minOccurs="1" />
+            <xsd:element name="listaFacturas" type="ListaFacturasTipo">
+            </xsd:element>
+            <xsd:element name="listaGastoPersonal" type="ListaGastoPersonalTipo">
+            </xsd:element>
+            <xsd:element name="listaOtroGasto" type="ListaOtroGastoTipo">
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ListaFacturasTipo">
+        <xsd:sequence>
+            <xsd:element name="factura" type="Factura" minOccurs="0" maxOccurs="unbounded">
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ListaGastoPersonalTipo">
+        <xsd:sequence>
+            <xsd:element name="gastoPersonal" type="GastoPersonal" minOccurs="0" maxOccurs="unbounded">
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ListaOtroGastoTipo">
+        <xsd:sequence>
+            <xsd:element name="otroGasto" type="OtroGasto" minOccurs="0" maxOccurs="unbounded">
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <!-- Definición de una Factura -->
+    <xsd:complexType name="Factura">
+        <xsd:annotation>
+            <xsd:documentation> Definición de una Factura </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+
+            <xsd:element name="numFactura" minOccurs="1" maxOccurs="1" type="TextMax40Type">
+                <xsd:annotation>
+                    <xsd:documentation> Número de Factura </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+
+            <!-- Tipo Documento Proveedor -->
+            <xsd:element name="tipoDocumentoProveedor" minOccurs="1" maxOccurs="1" type="TipoDocumentoProveedor">
+            </xsd:element>
+
+            <!-- CIF/NIF Proveedor -->
+            <xsd:element name="documento" minOccurs="1" maxOccurs="1" type="TextMax20Type">
+                <xsd:annotation>
+                    <xsd:documentation>CIF/NIF</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+
+            <xsd:element name="fecFactura" minOccurs="1" maxOccurs="1" type="Fecha">
+                <xsd:annotation>
+                    <xsd:documentation>Fecha factura</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+
+            <xsd:element name="ctpcon" minOccurs="1" maxOccurs="1" type="xsd:int">
+            </xsd:element>
+
+            <xsd:element name="ctpsco" minOccurs="1" maxOccurs="1" type="xsd:int">
+            </xsd:element>
+            <!-- Tipo Documento Gasto -->
+            <xsd:element name="tipoDocumentoGasto" minOccurs="1" maxOccurs="1" type="TipoDocumentoGastoFactura">
+            </xsd:element>
+
+            <xsd:element name="rutaDocumento" minOccurs="1" maxOccurs="1" type="TextMax2500Type">
+            </xsd:element>
+
+        </xsd:sequence>
+    </xsd:complexType>
+    <!-- Definición de un Gasto de Personal -->
+    <xsd:complexType name="GastoPersonal">
+        <xsd:annotation>
+            <xsd:documentation> Definición de un Gasto de personal </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+
+            <xsd:element name="mesPeriodo" minOccurs="1" maxOccurs="1" type="Meses"></xsd:element>
+            <xsd:element name="anioPeriodo" minOccurs="1" maxOccurs="1" type="AnioGastoPersonal"></xsd:element>
+
+            <xsd:element name="mesPeriodoHasta" minOccurs="0" maxOccurs="1" type="TextMax25Type"></xsd:element>
+            <xsd:element name="anioPeriodoHasta" minOccurs="0" maxOccurs="1" type="TextMax25Type"></xsd:element>
+
+            <!-- Tipo Documento Personal -->
+            <xsd:element name="tipoDocumento" minOccurs="1" maxOccurs="1" type="TiposDocumento">
+            </xsd:element>
+
+            <xsd:element name="documento" minOccurs="1" maxOccurs="1" type="xsd:string">
+            </xsd:element>
+            <xsd:element name="ctpcon" minOccurs="1" maxOccurs="1" type="xsd:int">
+            </xsd:element>
+
+            <xsd:element name="ctpsco" minOccurs="1" maxOccurs="1" type="xsd:int">
+            </xsd:element>
+            <!-- Tipo Documento Gasto -->
+            <xsd:element name="tipoDocumentoGasto" minOccurs="1" maxOccurs="1" type="TipoDocumentoGasto">
+            </xsd:element>
+
+            <xsd:element name="rutaDocumento" minOccurs="1" maxOccurs="1" type="TextMax2500Type">
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <!-- Definición de Otro Gasto -->
+    <xsd:complexType name="OtroGasto">
+        <xsd:annotation>
+            <xsd:documentation> Definición de otro gasto </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+
+            <xsd:element name="numOtroGasto" minOccurs="1" maxOccurs="1" type="TextMax40Type">
+                <xsd:annotation>
+                    <xsd:documentation> Número de Justificante </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <!-- Tipo Documento Proveedor -->
+            <xsd:element name="tipoDocumento" minOccurs="1" maxOccurs="1" type="TipoDocumentoProveedor">
+            </xsd:element>
+
+            <xsd:element name="documento" minOccurs="1" maxOccurs="1" type="TextMax20Type">
+                <xsd:annotation>
+                    <xsd:documentation>CIF/NIF</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+
+            <xsd:element name="fecOtroGasto" minOccurs="1" maxOccurs="1" type="Fecha">
+            </xsd:element>
+
+            <xsd:element name="ctpcon" minOccurs="1" maxOccurs="1" type="xsd:int">
+            </xsd:element>
+
+            <xsd:element name="ctpsco" minOccurs="1" maxOccurs="1" type="xsd:int">
+            </xsd:element>
+            <!-- Tipo Documento Gasto -->
+            <xsd:element name="tipoDocumentoGasto" minOccurs="1" maxOccurs="1" type="TipoDocumentoGasto">
+            </xsd:element>
+
+            <xsd:element name="rutaDocumento" minOccurs="1" maxOccurs="1" type="TextMax2500Type">
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <!-- Definiciones de tamaños máximos para campos textuales -->
+    <xsd:simpleType name="TextMax20Type">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="20" />
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="TextMax25Type">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="25" />
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="TextMax40Type">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="40" />
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="TextMax2500Type">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="2500" />
+        </xsd:restriction>
+    </xsd:simpleType>
+    <!-- Fechas -->
+    <xsd:simpleType name="Fecha">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="10" />
+            <xsd:minLength value="10" />
+            <xsd:pattern value="[0-9]{2}/[0-9]{2}/[0-9]{4}">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="es"> Campo de fecha con formato: dd/mm/yyyy </xsd:documentation>
+                </xsd:annotation>
+            </xsd:pattern>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <!-- Meses -->
+    <xsd:simpleType name="Meses">
+        <xsd:restriction base="xsd:int">
+            <xsd:enumeration value="1">
+                <xsd:annotation>
+                    <xsd:documentation>Enero</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="2">
+                <xsd:annotation>
+                    <xsd:documentation>Febrero</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="3">
+                <xsd:annotation>
+                    <xsd:documentation>Marzo</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="4">
+                <xsd:annotation>
+                    <xsd:documentation>Abril</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="5">
+                <xsd:annotation>
+                    <xsd:documentation>Mayo</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="6">
+                <xsd:annotation>
+                    <xsd:documentation>Junio</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="7">
+                <xsd:annotation>
+                    <xsd:documentation>Julio</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="8">
+                <xsd:annotation>
+                    <xsd:documentation>Agosto</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="9">
+                <xsd:annotation>
+                    <xsd:documentation>Septiembre</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="10">
+                <xsd:annotation>
+                    <xsd:documentation>Octubre</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="11">
+                <xsd:annotation>
+                    <xsd:documentation>Noviembre</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="12">
+                <xsd:annotation>
+                    <xsd:documentation>Diciembre</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <!-- Tipos de Documento para Personal -->
+    <xsd:simpleType name="TiposDocumento">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="F">
+                <xsd:annotation>
+                    <xsd:documentation>NIF</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="E">
+                <xsd:annotation>
+                    <xsd:documentation>NIE</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="P">
+                <xsd:annotation>
+                    <xsd:documentation>Pasaporte</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <!-- Anios de Gastos de Personal -->
+    <xsd:simpleType name="AnioGastoPersonal">
+        <xsd:restriction base="xsd:int">
+            <xsd:enumeration value="2004">
+                <xsd:annotation>
+                    <xsd:documentation>2004</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="2005">
+                <xsd:annotation>
+                    <xsd:documentation>2005</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="2006">
+                <xsd:annotation>
+                    <xsd:documentation>2006</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="2007">
+                <xsd:annotation>
+                    <xsd:documentation>2007</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="2008">
+                <xsd:annotation>
+                    <xsd:documentation>2008</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="2009">
+                <xsd:annotation>
+                    <xsd:documentation>2009</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="2010">
+                <xsd:annotation>
+                    <xsd:documentation>2010</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="2011">
+                <xsd:annotation>
+                    <xsd:documentation>2011</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="2012">
+                <xsd:annotation>
+                    <xsd:documentation>2012</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="2013">
+                <xsd:annotation>
+                    <xsd:documentation>2013</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="2014">
+                <xsd:annotation>
+                    <xsd:documentation>2014</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="2015">
+                <xsd:annotation>
+                    <xsd:documentation>2015</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="2016">
+                <xsd:annotation>
+                    <xsd:documentation>2016</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="2017">
+                <xsd:annotation>
+                    <xsd:documentation>2017</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="2018">
+                <xsd:annotation>
+                    <xsd:documentation>2018</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <!-- Tipos de Documento para Proveedor -->
+    <xsd:simpleType name="TipoDocumentoProveedor">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="F">
+                <xsd:annotation>
+                    <xsd:documentation>NIF</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="E">
+                <xsd:annotation>
+                    <xsd:documentation>NIE</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="C">
+                <xsd:annotation>
+                    <xsd:documentation>CIF</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="V">
+                <xsd:annotation>
+                    <xsd:documentation>Otros</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- Tipos de Documento Gasto para Factura -->
+    <xsd:simpleType name="TipoDocumentoGastoFactura">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="JUS_GAS">
+                <xsd:annotation>
+                    <xsd:documentation>Justificante del Gasto</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="JUS_PAG">
+                <xsd:annotation>
+                    <xsd:documentation>Justificante del Pago</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="DGAS1">
+                <xsd:annotation>
+                    <xsd:documentation>Documentación factura sin contrato</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- Tipos de Documento Gasto (gasto personal y otros gastos) -->
+    <xsd:simpleType name="TipoDocumentoGasto">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="JUS_GAS">
+                <xsd:annotation>
+                    <xsd:documentation>Justificante del Gasto</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="JUS_PAG">
+                <xsd:annotation>
+                    <xsd:documentation>Justificante del Pago</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema> 
