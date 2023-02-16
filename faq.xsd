@@ -1,0 +1,31 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <!-- Declaración elemento raíz -->
+    <xs:element name="faq">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="info" type="info"/>
+                <xs:element name="part" type="part"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!-- Elemento info-->
+    <xs:complexType name="info">
+        <xs:sequence>
+            <xs:element name="titulo" type="xs:string"/>
+            <xs:element name="autor" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="version" type="xs:int"/>
+            <xs:element name="fecha" type="xs:date"/>
+        </xs:sequence>
+    </xs:complexType>
+<!-- Elemento part-->
+<complexType name="">
+<xs:sequence>
+<xs:element/>
+
+</xs:sequence>
+
+
+</complexType>
+</xs:schema>
