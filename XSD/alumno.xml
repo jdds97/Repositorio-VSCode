@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexType name="alumnos">
+        <xs:sequence>
+            <xs:element name="alumno" type="alumno"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
+<xs:complexType name="alumno">
+    <xs:sequence>
+        <xs:element name="nombre" type="xs:string" />
+        <xs:element name="apellido" type="xs:string" />
+        <xs:element name="direccion" type="tipodireccion" minOccurs="1" maxOccurs="2" />
+        <xs:element name="telefono" type="xs:int" minOccurs="0" maxOccurs="5"/>
+    </xs:sequence>
+    <xs:attribute name="dni" type="tipoDNI"/>
+</xs:complexType>
+
+<xs:complexType name="tipodireccion">
+    <xs:sequence>
+        <xs:element name="calle" type="xs:string" />
+        <xs:element name="numero">
+            <xs:simpleType>
+                <xs:restriction base="xs:int">
+                    <xs:minExclusive value="0"/>
+                    <xs:maxInclusive value="500"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:element>
+        <xs:element name="ciudad" type="xs:string" />
+        <xs:element name="provincia" type="xs:string">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="Badajoz"/>
+                    <xs:enumeration value="Cáceres"/>
+                </xs:restriction>
+            </xs:simpleType>
+    </xs:element>
+    </xs:sequence>
+</xs:complexType>
+
+<!-- Restricción para usar con los dni-->
+<xs:simpleType name="tipoDNI">
+    <xs:restriction base="xs:string">
+        <xs:pattern value="[0-9]{8}[A-Z]"/>
+    </xs:restriction>
+</xs:simpleType>

@@ -1,7 +1,7 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <element name="alumno">
-        <complexType>
+    <element name="alumnos" >
+        <complexType ref="alumno">
             <sequence>
                 <element name="nombre" type="xs:string" />
                 <element />
