@@ -1,0 +1,57 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Declaración elemento raíz-->
+    <xs:element name="libreria">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="código" minOccurs="1">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:int">
+                            <xs:minInclusive value="1000"/>
+                            <xs:maxInclusive value="9999"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="direccion" type="xs:string" minOccurs="1"/>
+                <xs:element name="telefono" type="telefono" minOccurs="1"/>
+                <xs:element name="propietario" type="propietario" minOccurs="1"/>
+                <xs:element name="libro" type="libro" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Elemento telefono  Sympletype al tener una restricción de números-->
+    <xs:simpleType name="telefono">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="[0-9]{9}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!--Elemento propietario como Complextype al tener un elemento en su interior -->
+    <xs:complexType name="propietario">
+        <xs:sequence>
+            <xs:element name="nombre" minOccurs="1"/>
+            <xs:element name="telefono" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!--Elemento libro como Complextype al tener un elemento en su interior -->
+    <xs:complexType name="libro">
+        <xs:sequence>
+            <xs:element name="titulo" type="xs:string"/>
+            <xs:element name="autor" type="xs:string"/>
+            <xs:element name="formato" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="rústica"/>
+                        <xs:enumeration value="tapa blanda"/>
+                        <xs:enumeration value="tapa dura"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="publicacion" minOccurs="0"/>
+            <xs:element name="precio" minOccurs="0"/>
+            <xs:element name="cantidad" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
