@@ -1,0 +1,47 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Declaración del elemento raíz-->
+    <xs:element name="pagos">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nombre" type="nombre" minOccurs="1" maxOccurs="3"/>
+                <xs:element name="fechaNacimiento" type="xs:date"/>
+                <xs:element name="hora" type="xs:dateTime" minOccurs="1" maxOccurs="unbounded"/>
+                <xs:element name="precio" type="xs:double" />
+                <xs:element name="cantidad" type="xs:int" default="678"/>
+                <xs:element name="pagado" type="xs:boolean" default="false"/>
+            </xs:sequence>
+
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Declaración del elemento nombre-->
+    <xs:complexType name="nombre">
+        <xs:sequence>
+            <xs:element name="nombre" type="xs:string" default="A" />
+            <xs:element name="apellido" type="xs:string" />
+        </xs:sequence>
+        <xs:attribute name="dni" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="[0-9]{9}[A-Z]{1}"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <!-- Declaración del elemento fechaNacimiento-->
+    <xs:complexType name="fechaNacimiento">
+        <xs:sequence>
+            <xs:element name="fechaNacimiento" type="xs:date" />
+        </xs:sequence>
+        <xs:attribute name="edad" use="optional">
+            <xs:simpleType>
+                <xs:restriction base="xs:int">
+                    <xs:minInclusive value="16"/>
+                    <xs:maxInclusive value="24"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>
