@@ -25,6 +25,7 @@
         <xsd:attribute name="fabricacion" type="xsd:date"/>
     </xsd:complexType>
 
+
     <!-- Tipo restriccion de gramos -->
     <xsd:simpleType name="tipoResPeso1">
         <xsd:restriction base="xsd:integer">
@@ -38,4 +39,4 @@
             <xsd:maxInclusive value="200"/>
         </xsd:restriction>
     </xsd:simpleType>
-</xsd:schema> 
+</xsd:schema>   
