@@ -1,0 +1,78 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <?xml version="1.1" encoding="UTF-8"?>
+<?xml-model href="tienda.dtd" type="application/xml-dtd"?>
+-->
+
+
+
+
+<!--<?xml version="1.1" encoding="UTF-8"?>
+<?xml-model href="libros.dtd" type="application/xml-dtd"?>
+<libros>
+    <libro>
+        <titulo>El Quijote</titulo>
+        <autor>
+            <nombre>Miguel</nombre>
+            <apellido>Cervantes</apellido>
+            <nacionalidad>Español</nacionalidad>
+        </autor>
+        <fecha_publicacion>1605</fecha_publicacion>
+        <editorial>Francisco de Robles</editorial>
+    </libro>
+    <libro>
+        <titulo>La Ilíada</titulo>
+        <autor>
+            <nombre>Homer</nombre>
+            <nacionalidad>Griego</nacionalidad>
+        </autor>
+        <fecha_publicacion>VIII a. C.</fecha_publicacion>
+        <editorial>Penguin Classics</editorial>
+    </libro>
+    <libro>
+        <titulo>Los Miserables</titulo>
+        <autor>
+            <nombre>Victor</nombre>
+            <apellido>Hugo</apellido>
+        </autor>
+        <fecha_publicacion>1862</fecha_publicacion>
+        <editorial>A. Lacroix, Verboeckhoven &amp; Cie.</editorial>
+    </libro>
+</libros>-->
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE universidad SYSTEM "ejercicio.dtd">
+<universidad>
+    <curso codigo="INF101">
+        <nombre>Introducción a la programación</nombre>
+        <creditos>6</creditos>
+        <profesor>Juan Pérez</profesor>
+    </curso>
+    <curso codigo="INF202">
+        <nombre>Estructuras de datos</nombre>
+        <creditos>6</creditos>
+        <profesor>María Gómez</profesor>
+    </curso>
+    <curso codigo="MAT301">
+        <nombre>Cálculo diferencial e integral</nombre>
+        <creditos>8</creditos>
+        <profesor>Carlos Rodríguez</profesor>
+    </curso>
+</universidad>-->

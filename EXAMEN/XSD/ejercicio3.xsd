@@ -1,0 +1,43 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<catalogo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="catalogo1.xsd">
+    <pelicula id="1">
+        <titulo>El padrino</titulo>
+        <anio>1972</anio>
+        <descripcion>La historia de una familia siciliana en Nueva York.</descripcion>
+        <genero>
+            <nombre>Drama</nombre>
+            <descripcion>Una película de drama</descripcion>
+        </genero>
+        <genero>
+            <nombre>Acción</nombre>
+            <descripcion>Una película de acción</descripcion>
+        </genero>
+    </pelicula>
+    <pelicula id="2">
+        <titulo>El padrino II</titulo>
+        <anio>1974</anio>
+        <descripcion>La historia de una familia siciliana en Nueva York.</descripcion>
+        <genero>
+            <nombre>Drama</nombre>
+            <descripcion>Una película de drama</descripcion>
+        </genero>
+        <genero>
+            <nombre>Acción</nombre>
+            <descripcion>Una película de acción</descripcion>
+        </genero>
+    </pelicula>
+    <pelicula id="3">
+        <titulo>El padrino III</titulo>
+        <anio>1990</anio>
+        <descripcion>La historia de una familia siciliana en Nueva York.</descripcion>
+        <genero>
+            <nombre>Drama</nombre>
+            <descripcion>Una película de drama</descripcion>
+        </genero>
+        <genero>
+            <nombre>Acción</nombre>
+            <descripcion>Una película de acción</descripcion>
+        </genero>
+    </pelicula>
+</catalogo>

@@ -1,0 +1,10 @@
+<!ELEMENT tienda (categorías)+>
+<!ELEMENT categorías (productos)>
+<!ATTLIST categorías nombre CDATA #REQUIRED>
+<!ELEMENT productos (descripción,imagen)+>
+<!ATTLIST productos id ID #REQUIRED>
+<!ATTLIST productos precio CDATA #REQUIRED>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT descripción (#PCDATA)>
+<!ELEMENT imagen (#PCDATA)>
+<!ELEMENT categorías (li)+>

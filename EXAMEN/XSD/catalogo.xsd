@@ -1,0 +1,32 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!--Queremos definir un esquema XSD para un catálogo de películas en formato XML. Cada película debe tener un título, un año de estreno y una descripción, además de un identificador único que se generará automáticamente. Además, cada película puede tener uno o varios géneros, y cada género tiene un nombre y una descripción. Los nombres de las películas y los géneros no pueden estar vacíos, y los años de estreno deben ser mayores o iguales a 1900.
+
+Puedes utilizar cualquier prefijo de espacio de nombres que desees.
+
+Por favor, crea el esquema XSD correspondiente para este catálogo de películas.-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="catalogo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="pelicula" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="titulo" type="xs:string"/>
+                            <xs:element name="anio" type="xs:integer"/>
+                            <xs:element name="descripcion" type="xs:string"/>
+                            <xs:element name="genero" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nombre" type="xs:string"/>
+                                        <xs:element name="descripcion" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:integer" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

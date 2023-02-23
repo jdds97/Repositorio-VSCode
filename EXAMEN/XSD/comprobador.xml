@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<producto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ejercicio1.xsd">
+
+    
+        <nombre>str1234</nombre>
+        <precio>123.45</precio>
+        <descripcion>str1234</descripcion>
+    </producto>
+    <!--xsd a xml-->
+    <!--http://xsd2xml.com/-->
+    <!--xml a xsd-->
+    <!--https://www.liquid-technologies.com/online-xml-to-xsd-converter-->

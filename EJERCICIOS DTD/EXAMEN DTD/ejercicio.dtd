@@ -1,0 +1,6 @@
+<!ELEMENT universidad (curso*)>
+<!ELEMENT curso (nombre,creditos,profesor)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT creditos (#PCDATA)>
+<!ELEMENT profesor (#PCDATA)>
+<!ATTLIST curso codigo CDATA #REQUIRED>
